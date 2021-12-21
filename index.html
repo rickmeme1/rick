@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <title>Image Puzzle</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/image-puzzle.css" rel="stylesheet" />
+    <script src="js/image-puzzle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+
+<body style="background-color: lavender;">
+    <div id="collage">
+
+        <h1>貨物去那兒</h1>
+        <hr />
+        <audio autoplay src="music/李斯特 愛之夢.mp3"></audio>
+        <div id="playPanel" style="padding:5px;display:none;border-radius:10px;border: solid wheat;">
+            <h3 id="imgTitle"></h3>
+            <hr />
+
+            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
+                <ul id="sortable" class="sortable"></ul>
+                <div id="actualImageBox">
+                    <div id="stepBox">
+                        <div>Steps:</div>
+                        <div id="stepCount" class="stepCount">0</div>
+                    </div>
+                    <div id="timeBox">
+                        Time Taken: <span id="timerPanel"></span> secs
+                    </div>
+                    <img id="actualImage" />
+                    <div>Re-arrange to create a picture like this.</div>
+                    <p id="levelPanel">
+                        <input type="radio" name="level" id="easy" checked="checked" value="3" onchange="imagePuzzle.startGame(images, this.value);" /> <label for="easy">Easy</label>
+
+                    </p>
+                    <div>
+                        <button id="btnRule" type="button" class="btn" onclick="location.href='6_難易度選擇.html'">返回</button>
+                        <button id="newPhoto" type="button" class="btn" onclick="restart();">Renew Photo</button>
+                        <button id="btnReplay" type="button" class="btn" onclick="location.href='3_choose.html'">回選角</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display:none;">
+            <div style="background-color:#B0FBFE; padding: 5px 10px 20px 10px; text-align: center; ">
+                <h2 style="text-align:center">Game Over!!</h2>
+                Congratulations!! <br /> You have completed this picture.
+                <br /> Steps: <span id="stepCount" class="stepCount">0</span> steps.
+                <br /> Time Taken: <span class="timeCount">0</span> seconds<br />
+                <div>
+                    <!-- <button type="button" onclick="window.location.reload(true);">Play Again</button> -->
+                    <input type="button" value="完成" onclick="location.href='9_恭喜通關.html'">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var images = [{
+                src: 'images//三井easy.jpg',
+                title: '三井倉庫'
+            }];
+
+            window.onload = function() {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            };
+
+            function restart() {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            }
+
+
+            function about() {
+                alert('do your puzzle MDFK');
+            }
+        </script>
+    </div>
+</body>
+
+</html>

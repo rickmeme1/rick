@@ -1,0 +1,36 @@
+body {
+    font-family: 'Segoe UI', Calibri, Arial;
+    margin: 0;
+    background-image: url("https://th.bing.com/th/id/OIP.H7b5e_WZxHyMx1YKczZBEgHaE8?w=248&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-weight: normal;
+    text-align: center;
+    text-shadow: 0cm;
+    color: azure;
+}
+
+h3 {
+    margin: 3px 0px;
+    text-align: center;
+    color: snow;
+}
+
+#playPanel {
+    border-radius: 10px;
+    border: solid snow;
+}
+
+img {
+    border-color: honeydew;
+    border-radius: 10px;
+}
+
+ul {
+    border-color: honeydew;
+    border-radius: 5px;
+}
